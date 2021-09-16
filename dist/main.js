@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n\r\n\r\n\r\nlet Tasks = new _project__WEBPACK_IMPORTED_MODULE_0__.Project(\"Tasks\");\r\nlet firstTodo = new _todo__WEBPACK_IMPORTED_MODULE_1__.Todo(\"First Todo\");\r\nlet secondTodo = new _todo__WEBPACK_IMPORTED_MODULE_1__.Todo(\"Second Todo\");\r\n\r\nTasks.addTodo(firstTodo);\r\nTasks.addTodo(secondTodo);\r\n\r\nconsole.log(Tasks.getTodos());\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n\r\n\r\n\r\nlet Tasks = new _project__WEBPACK_IMPORTED_MODULE_0__.Project(\"Tasks\");\r\n\r\nTasks.addNewTodo(\"First Todo\");\r\n\r\nconsole.log(Tasks.getTodos());\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Project\": () => (/* binding */ Project)\n/* harmony export */ });\n// Project class\r\n// Projects have a single title and one or more todos\r\n// There is a default Tasks project that is initilized at the start\r\n// More projects can be created by user\r\n\r\nclass Project {\r\n    todos = []\r\n\r\n    constructor(name) {\r\n      this.name = name;\r\n    }\r\n\r\n    addTodo(todo){\r\n      this.todos.push(todo);\r\n    }\r\n\r\n    getTodos() {\r\n      return this.todos;\r\n    }\r\n\r\n}\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Project\": () => (/* binding */ Project)\n/* harmony export */ });\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n// Project class\r\n// Projects have a single title and one or more todos\r\n// There is a default Tasks project that is initilized at the start\r\n// More projects can be created by user\r\n\r\n\r\n\r\nclass Project {\r\n    todos = []\r\n\r\n    constructor(name) {\r\n      this.name = name;\r\n    }\r\n\r\n    addNewTodo(name, description, dueDate, priority) {\r\n      let newTodo = new _todo__WEBPACK_IMPORTED_MODULE_0__.Todo(name, description, dueDate, priority);\r\n      this.todos.push(newTodo);\r\n    }\r\n\r\n    getTodos() {\r\n      return this.todos;\r\n    }\r\n}\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/project.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Todo\": () => (/* binding */ Todo)\n/* harmony export */ });\n// Task objects have a title, description, dueDate and priority\r\n// they are added to projects\r\n\r\nclass Todo {\r\n    constructor(name) {\r\n      this.name = name;\r\n    }\r\n}\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/todo.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Todo\": () => (/* binding */ Todo)\n/* harmony export */ });\n// Task objects have a title, description, dueDate and priority\r\n// they are added to projects\r\n\r\nclass Todo {\r\n    constructor(name, description, dueDate, priority) {\r\n      this.name = name;\r\n      this.description = description;\r\n      this.dueDate = dueDate;\r\n      this.priority = priority;\r\n    }\r\n}\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/todo.js?");
 
 /***/ })
 
