@@ -8,3 +8,5 @@ class Project {
       this.name = name;
     }
 }
+
+export {Project}

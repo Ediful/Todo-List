@@ -1,2 +1,6 @@
+import { Project } from './project'
+import { Todo } from './todo'
+
 console.log("webpack check");
-console.log("grrrrhadf");
+
+let Tasks = new Project("Tasks");
