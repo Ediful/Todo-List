@@ -4,9 +4,20 @@
 // More projects can be created by user
 
 class Project {
+    todos = []
+
     constructor(name) {
       this.name = name;
     }
+
+    addTodo(todo){
+      this.todos.push(todo);
+    }
+
+    getTodos() {
+      return this.todos;
+    }
+
 }
 
 export {Project}
