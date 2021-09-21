@@ -8,12 +8,12 @@ import { Todo } from "./todo";
 class Project {
     todos = []
 
-    constructor(name) {
-      this.name = name;
+    constructor(title) {
+      this.title = title;
     }
 
-    addNewTodo(name, description, dueDate, priority) {
-      let newTodo = new Todo(name, description, dueDate, priority);
+    addNewTodo(title, description, dueDate, priority) {
+      let newTodo = new Todo(title, description, dueDate, priority);
       this.todos.push(newTodo);
     }
 
