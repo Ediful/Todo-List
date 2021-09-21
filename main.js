@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n\r\n\r\n\r\nlet Tasks = new _project__WEBPACK_IMPORTED_MODULE_0__.Project(\"Tasks\");\r\n\r\nTasks.addNewTodo(\"First Todo\");\r\n\r\nconsole.log(Tasks.getTodos());\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n\r\n\r\n\r\nlet Tasks = new _project__WEBPACK_IMPORTED_MODULE_0__.Project(\"Tasks\");\r\n\r\nTasks.addNewTodo(\"First Todo\");\r\n\r\nlocalStorage.setItem(\"Tasks\", JSON.stringify(Tasks));\r\n\r\nconsole.log(localStorage.getItem(\"Tasks\"));\r\n\r\nconsole.log(Tasks.getTodos());\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ }),
 
