@@ -1,12 +1,23 @@
 import { Project } from './project'
-import { Todo } from './todo'
+
+let Projects = [];
 
 let Tasks = new Project("Tasks");
+Tasks.addNewTodo("First Todo", "my first entry", "neva eva", "low");
+Projects.push(Tasks);
+//localStorage.setItem("Tasks", JSON.stringify(Tasks));
 
-Tasks.addNewTodo("First Todo");
+let School = new Project("School");
+School.addNewTodo("Game Design", "Project for the class", "December", "high");
+Projects.push(School);
+//localStorage.setItem("School", JSON.stringify(School));
 
-localStorage.setItem("Tasks", JSON.stringify(Tasks));
+// 1. Have a Projects array that holds all the Project objects
+// 2. Use localstorage.key(i) to iterate through all saved Project objects
 
-console.log(localStorage.getItem("Tasks"));
+// both methods save it okay, but which makes it easiest to extract the information?
 
-console.log(Tasks.getTodos());
+localStorage.setItem("Projects", JSON.stringify(Projects));
+//console.log("saved Projects: " + localStorage.getItem("Projects"));
+
+console.log(JSON.parse(localStorage.getItem("Projects")));
