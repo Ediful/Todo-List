@@ -15,6 +15,10 @@ Projects.push(School);
 localStorage.setItem("Projects", JSON.stringify(Projects));
 
 
+
+
+
+/*
 // This next part is mostly about figuring out how I can recreate
 // Project and Todo objects to keep everything completely consistent
 
@@ -38,5 +42,5 @@ storage.forEach(project => {
 // It checks out!
 console.log(Projects);
 console.log(savedProjects);
-
-localStorage.clear(); // start from scratch each reload
+*/
+//localStorage.clear(); // start from scratch each reload
