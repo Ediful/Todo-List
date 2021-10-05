@@ -1,4 +1,5 @@
 import { Project } from './project'
+import { userInterface } from './user-interface'
 
 let Projects = []; // array to hold all Project objects
 
@@ -44,3 +45,5 @@ console.log(Projects);
 console.log(savedProjects);
 */
 //localStorage.clear(); // start from scratch each reload
+
+
