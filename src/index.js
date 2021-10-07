@@ -15,7 +15,9 @@ Projects.push(School);
 // saving the Projects array to localstorage
 localStorage.setItem("Projects", JSON.stringify(Projects));
 
+let displayController = new userInterface();
 
+displayController.addTodoItem();
 
 
 
