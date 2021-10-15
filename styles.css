@@ -29,7 +29,20 @@ h1 {
     margin-bottom: 20px;
 }
 
-
+form {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #FF729F;
+    top: 0;
+    right: 0;
+    margin: 0.6em;
+    padding: 0.75em;
+    z-index: 1; /* Sit on top */
+    width: fit-content;
+    border: 3px solid #14213d;
+    border-radius: 10px;
+    box-shadow: 1px 2px #829f8b;
+  }
 
 #todo-items {
     margin-top: 90px;
