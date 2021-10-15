@@ -1,11 +1,13 @@
-// should this be a collection of functions or a class?
-// for now, I'll try to make it a class
-// 1. addTodoItem <- start here
-
 class userInterface {
-    // this function creates the HTML code for the todo item cards
+    // addTodoItem renders the todo card for a single todo
     // there are a lot of divisions so it looks messy but isn't actually complicated
-    addTodoItem() {
+
+    projectForm = document.getElementById("project-form");
+    taskForm = document.getElementById("task-form");
+
+
+    addTodoItem(todo) {
+        /*
         const todoItems = document.getElementById("todo-items");
 
         const todoCard = document.createElement('div');
@@ -45,18 +47,47 @@ class userInterface {
         todoDesc.className = "todo-desc";
         todoDesc.textContent = "Description of Task";
         todoCard.appendChild(todoDesc);
-        // don't forget to attach everything! (append)
-        // and do it all in the right way! (order might matter)
+        */
     }
 
-    addProject() {
-
-    }
-
-    changeProject() {
+    // adds a new tab for the given project
+    addProject(project) {
 
     }
 
+    // removes a project from the sidebar
+    delProject(project) {
+
+    }
+
+    // create a todo card for every todo item in a given project
+    displayTodos(project) {
+
+    }
+
+    // change project tab and displays every todo for that project
+    changeProject(project) {
+
+    }
+
+    openProjectForm() {
+        document.getElementById('new-project').addEventListener('click', () => projectForm.style.display = "block");
+        document.getElementById('project-close').addEventListener('click', () => projectForm.style.display = "none");
+    }
+
+    openTaskForm() {
+
+    }
+
+    submitProjectForm(project) {
+        
+    }
+
+    submitTaskForm(task) {
+
+    }
+
+    // removes every todo card on current tab
     clearTodoItems() {
 
     }

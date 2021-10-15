@@ -3,6 +3,20 @@ import { userInterface } from './user-interface'
 
 let Projects = []; // array to hold all Project objects
 
+// TODO: Add projects and Tasks through user interface
+
+let projectForm = document.getElementById("project-form");
+let taskForm = document.getElementById("task-form");
+
+document.getElementById('new-project').addEventListener('click', () => projectForm.style.display = "block");
+document.getElementById('project-close').addEventListener('click', () => projectForm.style.display = "none");
+//document.getElementById('submit').addEventListener('click', submitForm); // need way to add to array
+
+document.getElementById('new-task').addEventListener('click', () => taskForm.style.display = "block");
+document.getElementById('task-close').addEventListener('click', () => taskForm.style.display = "none");
+
+
+/*
 // creating Project objects and adding them to the Projects array
 let Tasks = new Project("Tasks");
 Tasks.addNewTodo("First Todo", "my first entry", "neva eva", "low");
@@ -18,7 +32,7 @@ localStorage.setItem("Projects", JSON.stringify(Projects));
 let displayController = new userInterface();
 
 displayController.addTodoItem();
-
+*/
 
 
 /*
