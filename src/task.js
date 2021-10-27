@@ -1,7 +1,7 @@
 // Task objects have a title, description, dueDate and priority
 // they are added to projects
 
-class Todo {
+class Task {
     constructor(name, description, dueDate, priority) {
       this.name = name;
       this.description = description;
@@ -10,4 +10,4 @@ class Todo {
     }
 }
 
-export {Todo}
+export {Task}

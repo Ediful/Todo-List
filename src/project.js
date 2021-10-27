@@ -1,24 +1,24 @@
 // Project class
-// Projects have a single title and one or more todos
+// Projects have a single title and one or more tasks
 // There is a default Tasks project that is initilized at the start
 // More projects can be created by user
 
-import { Todo } from "./todo";
+import { Task } from "./task";
 
 class Project {
-    todos = []
+    tasks = []
 
     constructor(title) {
       this.title = title;
     }
 
-    addNewTodo(title, description, dueDate, priority) {
-      let newTodo = new Todo(title, description, dueDate, priority);
-      this.todos.push(newTodo);
+    addNewTask(title, description, dueDate, priority) {
+      let newTask = new Task(title, description, dueDate, priority);
+      this.tasks.push(newTask);
     }
 
     getTodos() {
-      return this.todos;
+      return this.tasks;
     }
 }
 
