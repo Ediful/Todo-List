@@ -9,9 +9,12 @@
 
 <body>
     <div id="content">
+      <h3 id="active-project">Inbox</h3>
+    </div>
+    
     <div id="sidebar">
-        <div id="title"><h1>Todo</h1></div>
-        <div id="Inbox"><h2>Inbox</h2></div>
+        <div id="title"><h1>Todo List</h1></div>
+        <button class="project-tab">Inbox</button>
         <div id="project-list"><h2>Projects</h2></div>
         <input type="button" value="New Project" id="new-project-btn">
         <input type="button" value="New Task" id="new-task-btn">
@@ -39,7 +42,7 @@
       
       <label><b>Priority</b><input type="checkbox" id="new-task-priority"></label>
       
-      <input type="button" id="submit" value="Submit">
+      <input type="button" id="new-task-submit" value="Submit">
     </form>
 
     <div id="todo-items"></div>
