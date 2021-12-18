@@ -1,30 +1,30 @@
-import { Project } from "./project";
+import Storage from "./storage"
 
-let Projects = [];
-let activeProject = null;
-
-export default class UI {
-  // Loading initial content
-  static loadHomepage() {
-    this.loadProjects();
-    this.loadNewProjectBtns();
-    console.log(this);
-    console.log(UI);
-    UI.loadNewTaskBtns();
+export default (() => {
+  const loadHomepage = () => {
+    loadProjects();
+    loadNewProjectForm();
+    loadNewTaskForm();
   }
 
-  // load initial projects
-  static loadProjects() {
-    // TODO: check storage
-    // load default inbox project
-    let Inbox = new Project("Inbox");
-    Projects.push(Inbox);
-    console.log(Projects);
-    UI.loadProjectTabBtns();
+  const loadProjects = () => {
+    // TODO: Check storage
+    // load default Inbox Project
+    loadProjectTabs();
+  }
+  
+  const loadProjectTabs = () => {
+    let activeProject = document.getElementById("active-project");
+    let projectTabs = Array.from(document.getElementsByClassName("project-tab"));
+
+    projectTabs.forEach(tab => 
+      tab.addEventListener("click", () => {
+        activeProject.textContent = tab.textContent;
+      })
+    );
   }
 
-  // creates behavior for all the new project related buttons
-  static loadNewProjectBtns() {
+  const loadNewProjectForm = () => {
     let newProjectForm = document.getElementById("new-project-form");
     let newProjectBtn = document.getElementById("new-project-btn");
     let newProjectCloseBtn = document.getElementById("new-project-close");
@@ -32,20 +32,17 @@ export default class UI {
 
     newProjectBtn.addEventListener("click", () => (newProjectForm.style.display = "block"));
     newProjectCloseBtn.addEventListener("click", () => (newProjectForm.style.display = "none"));
-    newProjectSubmitBtn.addEventListener("click", () => UI.submitNewProject());
+
+    newProjectSubmitBtn.addEventListener("click", () => {
+      let newProjectTitle = document.getElementById("new-project-title").value;
+      let newProject = new Project(newProjectTitle);
+      
+      displayNewProject(newProject);
+      loadProjectTabs();
+    });
   }
 
-  // adds new Project object to the Projects array and then calls displayNewProject
-  static submitNewProject() {
-    let newProjectTitle = document.getElementById("new-project-title").value;
-    let newProject = new Project(newProjectTitle);
-    Projects.push(newProject);
-    UI.displayNewProject(newProject);
-    UI.loadProjectTabBtns();
-  }
-
-  // add new project to the Projects list on the sidebar
-  static displayNewProject(newProject) {
+  const displayNewProject = (newProject) => {
     let projectList = document.getElementById("project-list");
 
     // create tab for new project
@@ -57,8 +54,7 @@ export default class UI {
     projectList.appendChild(newProjectEntry);
   }
 
-  // creates behavior for all the new task related buttons
-  static loadNewTaskBtns() {
+  const loadNewTaskForm = () => {
     let newTaskForm = document.getElementById("new-task-form");
     let newTaskBtn = document.getElementById("new-task-btn");
     let newTaskCloseBtn = document.getElementById("new-task-close");
@@ -66,31 +62,16 @@ export default class UI {
 
     newTaskBtn.addEventListener("click",() => (newTaskForm.style.display = "block"));
     newTaskCloseBtn.addEventListener("click",() => (newTaskForm.style.display = "none"));
-    newTaskSubmitBtn.addEventListener("click", UI.submitNewTask);
+
+    newTaskSubmitBtn.addEventListener("click", () => {
+      let newTaskTitle = document.getElementById("new-task-title").value;
+      let newTaskDueDate = document.getElementById("new-task-due-date").value;
+      let newTaskDescription = document.getElementById("new-task-description").value;
+      // grab active project from HTML element
+      // create new task object
+      // add task to active project
+    });
   }
 
-  // adds new Task object to the current project and then calls displayNewTask
-  static submitNewTask() {
-    let newTaskTitle = document.getElementById("new-task-title").value;
-    let newTaskDueDate = document.getElementById("new-task-due-date").value;
-    let newTaskDescription = document.getElementById("new-task-description").value;
-    let activeProject = document.getElementById("active-project");
-
-    console.log(activeProject.textContent);
-
-    // grab active project from HTML element
-    // create new task object
-    activeProject
-    // add task to active project
-  }
-
-  static loadProjectTabBtns() {
-    let projectTabs = Array.from(document.getElementsByClassName("project-tab"));
-    projectTabs.forEach(tab => tab.addEventListener("click", UI.changeProjectTab));
-  }
-
-  static changeProjectTab(e) {
-    let activeProject = document.getElementById("active-project").textContent;
-    
-  }
-}
+  return {loadHomepage}
+})();
