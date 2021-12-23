@@ -1,4 +1,5 @@
 import Storage from "./storage"
+import Project from "./project";
 
 export default (() => {
   const loadHomepage = () => {
@@ -8,12 +9,17 @@ export default (() => {
   }
 
   const loadProjects = () => {
-    // TODO: Check storage
-    // load default Inbox Project
+    // Load saved projects or create deafult Inbox project
+    Storage.loadProjects();
     loadProjectTabs();
   }
   
   const loadProjectTabs = () => {
+    console.log(Storage.getTodoList());
+    Storage.getTodoList().forEach(project => {
+      displayNewProject(project);
+    });
+
     let activeProject = document.getElementById("active-project");
     let projectTabs = Array.from(document.getElementsByClassName("project-tab"));
 
@@ -35,8 +41,8 @@ export default (() => {
 
     newProjectSubmitBtn.addEventListener("click", () => {
       let newProjectTitle = document.getElementById("new-project-title").value;
-      let newProject = new Project(newProjectTitle);
-      
+      let newProject = Project(newProjectTitle);
+      Storage.addProject(newProject);
       displayNewProject(newProject);
       loadProjectTabs();
     });
