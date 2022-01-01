@@ -10,11 +10,12 @@
 <body>
     <div id="content">
       <h3 id="active-project">Inbox</h3>
+      <div id="todo-items"></div>
     </div>
     
     <div id="sidebar">
         <div id="title"><h1>Todo List</h1></div>
-        <button class="project-tab">Inbox</button>
+        <button class="project-tab" id="inbox">Inbox</button>
         <div id="project-list"><h2>Projects</h2></div>
         <input type="button" value="New Project" id="new-project-btn">
         <input type="button" value="New Task" id="new-task-btn">
@@ -38,14 +39,12 @@
       <input type="text" id="new-task-due-date">
       
       <label for="new-task-description"><b>description</b></label>
-      <input type="number" id="new-task-description">
+      <input type="text" id="new-task-description">
       
       <label><b>Priority</b><input type="checkbox" id="new-task-priority"></label>
       
       <input type="button" id="new-task-submit" value="Submit">
     </form>
-
-    <div id="todo-items"></div>
     <!-- your content here... -->
     <script src="main.js"></script>
 </body>

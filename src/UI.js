@@ -1,5 +1,6 @@
 import Storage from "./storage"
-import Project from "./project";
+import projectFactory from "./project"
+import taskFactory from "./task"
 
 export default (() => {
   const loadHomepage = () => {
@@ -11,23 +12,13 @@ export default (() => {
   const loadProjects = () => {
     // Load saved projects or create deafult Inbox project
     Storage.loadProjects();
-    loadProjectTabs();
-  }
-  
-  const loadProjectTabs = () => {
-    console.log(Storage.getTodoList());
     Storage.getTodoList().forEach(project => {
-      displayNewProject(project);
+      displayProject(project);
     });
+  }
 
-    let activeProject = document.getElementById("active-project");
-    let projectTabs = Array.from(document.getElementsByClassName("project-tab"));
-
-    projectTabs.forEach(tab => 
-      tab.addEventListener("click", () => {
-        activeProject.textContent = tab.textContent;
-      })
-    );
+  const loadTasks = () => {
+    
   }
 
   const loadNewProjectForm = () => {
@@ -39,16 +30,23 @@ export default (() => {
     newProjectBtn.addEventListener("click", () => (newProjectForm.style.display = "block"));
     newProjectCloseBtn.addEventListener("click", () => (newProjectForm.style.display = "none"));
 
+    // TODO: submit when pressing enter
     newProjectSubmitBtn.addEventListener("click", () => {
-      let newProjectTitle = document.getElementById("new-project-title").value;
-      let newProject = Project(newProjectTitle);
+      let newProjectName = document.getElementById("new-project-title").value;
+      let newProject = projectFactory(newProjectName);
       Storage.addProject(newProject);
-      displayNewProject(newProject);
-      loadProjectTabs();
+      displayProject(newProject);
     });
   }
 
-  const displayNewProject = (newProject) => {
+  const displayProject = (newProject) => {
+    let activeProjectName = document.getElementById("active-project");
+
+    if (newProject.getName() == "Inbox") {
+      document.getElementById("inbox").addEventListener("click", () => activeProjectName.textContent = "Inbox");
+      return;
+    }
+
     let projectList = document.getElementById("project-list");
 
     // create tab for new project
@@ -56,8 +54,49 @@ export default (() => {
     const newProjectEntry = document.createElement("button");
     newProjectEntry.className = "project-tab";
 
-    newProjectEntry.textContent = newProject.title;
+    newProjectEntry.textContent = newProject.getName();
     projectList.appendChild(newProjectEntry);
+
+    newProjectEntry.addEventListener("click", () => activeProjectName.textContent = newProjectEntry.textContent);
+  }
+
+  const handleTabs = () => {
+
+  }
+
+  const displayTask = (task) => {
+    let taskList = document.getElementById("todo-items");
+    let taskCard = document.createElement("div");
+    taskCard.className = "todo-card"
+    taskList.appendChild(taskCard);
+
+    let todoCheckBoxTitlePriority = document.createElement("div");
+    todoCheckBoxTitlePriority.className = "todo-checkbox-title-priority";
+    taskCard.appendChild(todoCheckBoxTitlePriority);
+
+    let todoCheckboxTitle = document.createElement("div");
+    todoCheckboxTitle.className = "todo-checkbox-title";
+    todoCheckBoxTitlePriority.appendChild(todoCheckboxTitle);
+
+    let todoTitle = document.createElement("div");
+    todoTitle.className = "todo-title";
+    todoTitle.textContent = "task name";
+    todoCheckboxTitle.appendChild(todoTitle);
+
+    let todoDate = document.createElement("div");
+    todoDate.className = "todo-date";
+    todoDate.textContent = "00/00/00"
+    todoCheckBoxTitlePriority.appendChild(todoDate);
+    
+    let todoPriority = document.createElement("div");
+    todoPriority.className = "todo-priority";
+    todoPriority.textContent = "&#x1F7E2";
+    todoCheckBoxTitlePriority.appendChild(todoPriority);
+
+    let todoDesc = document.createElement("div");
+    todoDesc.className = "todo-desc";
+    todoDesc.textContent = "description";
+    taskCard.appendChild(todoDesc);
   }
 
   const loadNewTaskForm = () => {
@@ -74,8 +113,13 @@ export default (() => {
       let newTaskDueDate = document.getElementById("new-task-due-date").value;
       let newTaskDescription = document.getElementById("new-task-description").value;
       // grab active project from HTML element
+      let activeProjectName = document.getElementById("active-project").textContent;
       // create new task object
+      let newTask = taskFactory(newTaskTitle, newTaskDueDate, newTaskDescription);
       // add task to active project
+      Storage.addTask(activeProjectName, newTask);
+      // display task
+      displayTask(newTask);
     });
   }
 

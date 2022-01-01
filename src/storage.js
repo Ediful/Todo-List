@@ -1,4 +1,4 @@
-import project from "./project";
+import projectFactory from "./project";
 import todolist from "./todolist";
 
 // saves/loads projects and their corresponding tasks
@@ -8,32 +8,29 @@ export default (() => {
     // save todolist
     const saveProjects = () => {
         // save todolist
-        console.log("todolist saved");
-        console.log(todolist.getTodoList());
-        console.log(JSON.stringify(todolist.getTodoList()));
-        localStorage.setItem("todolist", JSON.stringify(todolist.getTodoList()));
+        localStorage.setItem("todolist", JSON.stringify(todolist.getProjects()));
     }
 
     // load todolist
     const loadProjects = () => {
         if (localStorage.getItem("todolist")) {
-            // set todolist
-            console.log(localStorage.getItem("todolist"));
-            console.log(JSON.parse(localStorage.getItem("todolist")));
-            todolist.setTodoList(JSON.parse(localStorage.getItem("todolist")));
-            console.log("todolist loaded");
-            console.log(todolist.getTodoList());
-            console.log(JSON.stringify(todolist.getTodoList()));
+            let restoredTodolist = JSON.parse(localStorage.getItem("todolist"));
+
+            restoredTodolist.forEach(obj => {
+                let restoredProject = projectFactory(obj.name);
+                restoredProject.setTasks(obj.tasks);
+                addProject(restoredProject);
+                // might need to add tasks as well
+            });
         }
         else {
-            console.log("todolist created");
-            let Inbox = project("Inbox");
-            addProject(Inbox)
+            let Inbox = projectFactory("Inbox");
+            addProject(Inbox);
         }
     }
 
     // get todolist
-    const getTodoList = () => todolist.getTodoList();
+    const getTodoList = () => todolist.getProjects();
 
     // add project
     const addProject = (newProject) => {
@@ -42,8 +39,12 @@ export default (() => {
     }
 
     // add task to a project
+    const addTask = (projectName, newTask) => {
+        todolist.getProject(projectName).addTask(newTask);
+        saveProjects();
+    }
 
     // TODO: edit projects and tasks, delete projects and tasks
 
-    return {loadProjects, getTodoList, addProject}
+    return {loadProjects, getTodoList, addProject, addTask}
 })();
