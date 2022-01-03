@@ -17,10 +17,6 @@ export default (() => {
     });
   }
 
-  const loadTasks = () => {
-    
-  }
-
   const loadNewProjectForm = () => {
     let newProjectForm = document.getElementById("new-project-form");
     let newProjectBtn = document.getElementById("new-project-btn");
@@ -30,7 +26,7 @@ export default (() => {
     newProjectBtn.addEventListener("click", () => (newProjectForm.style.display = "block"));
     newProjectCloseBtn.addEventListener("click", () => (newProjectForm.style.display = "none"));
 
-    // TODO: submit when pressing enter
+    // TODO: submit when pressing enter and close once form is submitted
     newProjectSubmitBtn.addEventListener("click", () => {
       let newProjectName = document.getElementById("new-project-title").value;
       let newProject = projectFactory(newProjectName);
@@ -42,26 +38,23 @@ export default (() => {
   const displayProject = (newProject) => {
     let activeProjectName = document.getElementById("active-project");
 
-    if (newProject.getName() == "Inbox") {
+    if (newProject.getName() === "Inbox") {
       document.getElementById("inbox").addEventListener("click", () => activeProjectName.textContent = "Inbox");
+      newProject.getTasks().forEach(task => displayTask(task));
       return;
     }
 
     let projectList = document.getElementById("project-list");
 
-    // create tab for new project
-    // dynamically create event listeners for each project
     const newProjectEntry = document.createElement("button");
     newProjectEntry.className = "project-tab";
-
     newProjectEntry.textContent = newProject.getName();
     projectList.appendChild(newProjectEntry);
 
-    newProjectEntry.addEventListener("click", () => activeProjectName.textContent = newProjectEntry.textContent);
-  }
-
-  const handleTabs = () => {
-
+    newProjectEntry.addEventListener("click", () => {
+      activeProjectName.textContent = newProjectEntry.textContent;
+      newProject.getTasks().forEach(task => displayTask(task));
+    });
   }
 
   const displayTask = (task) => {
@@ -80,12 +73,12 @@ export default (() => {
 
     let todoTitle = document.createElement("div");
     todoTitle.className = "todo-title";
-    todoTitle.textContent = "task name";
+    todoTitle.textContent = task.name;
     todoCheckboxTitle.appendChild(todoTitle);
 
     let todoDate = document.createElement("div");
     todoDate.className = "todo-date";
-    todoDate.textContent = "00/00/00"
+    todoDate.textContent = task.dueDate;
     todoCheckBoxTitlePriority.appendChild(todoDate);
     
     let todoPriority = document.createElement("div");

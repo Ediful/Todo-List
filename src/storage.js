@@ -20,7 +20,6 @@ export default (() => {
                 let restoredProject = projectFactory(obj.name);
                 restoredProject.setTasks(obj.tasks);
                 addProject(restoredProject);
-                // might need to add tasks as well
             });
         }
         else {

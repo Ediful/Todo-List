@@ -5,9 +5,7 @@
 export default ((name) => {
   let tasks = [];
 
-  const getName = () => {
-    return name;
-  }
+  const getName = () => name;
 
   const getTasks = () => tasks;
 
@@ -15,6 +13,7 @@ export default ((name) => {
 
   const addTask = (task) => {
     tasks.push(task);
+    console.log(tasks);
   }
 
   const toJSON = () => {
