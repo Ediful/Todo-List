@@ -13,7 +13,7 @@
   }
 
 #sidebar {
-    width: 160px;
+    width: 180px;
     position: fixed;
     background-color: brown;
     z-index: 1;
@@ -25,39 +25,93 @@
 }
 
 h1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
+h2 {
+    margin: 10px;
+}
 
+#project-list {
+    display: block;
+}
+
+.project-card {
+    display: flex;
+}
+
+.project-tab {
+    display: block;
+    font-size: 18px;
+    color: white;
+    margin: 10px 5px;
+    padding: 5px;
+    border: none;
+    background: none;
+}
+
+.project-delete-btn {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 26px;
+}
+
+.new-btn {
+    font-size: 14px;
+    margin: 5px;
+    padding: 5px;
+}
+
+form {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #FF729F;
+    top: 0;
+    right: 0;
+    margin: 0.6em;
+    padding: 0.75em;
+    z-index: 1; /* Sit on top */
+    width: fit-content;
+    border: 3px solid #14213d;
+    border-radius: 10px;
+    box-shadow: 1px 2px #829f8b;
+  }
 
 #todo-items {
-    margin-top: 90px;
-    margin-left: 320px;
-    margin-right: 160px;
+    margin-top: 40px;
+    min-width: 300px;
+    max-width: 50%;
 }
 
 .todo-card {
+    display: block;
     border: thin solid black;
     border-radius: 5px;
     padding: 10px;
+    margin: 10px 0px;
 }
 
-.todo-checkbox-title-priority {
+.todo-card-row-1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
 }
 
-.todo-checkbox-title {
-    display: flex;
+.todo-desc {
+    margin-left: 20px;
 }
 
-.todo-checkbox {
+.todo-date {
+    margin: 0 10px 0 auto;
+}
+
+.task-delete-btn {
+    font-size: 24px;
     border: none;
-    background-color: transparent;
-    margin: 0px 5px;
+    background: none;
+    width: 20px;
 }
 
-.todo-checkbox:hover {
-    background-color: brown;
+#content {
+    margin: 20px 0px 0px 200px;
 }

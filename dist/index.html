@@ -9,27 +9,47 @@
 
 <body>
     <div id="content">
+      <h3 id="active-project">Inbox</h3>
+      <div id="todo-items"></div>
+    </div>
+    
     <div id="sidebar">
-        <div id="title"><h1>Todo</h1></div>
-        <div id="tasks"><h2>Tasks</h2></div>
-        <div id="projects"><h3>Projects</h2></div>
+        <div id="title"><h1>Todo List</h1></div>
+        <button class="project-tab" id="inbox">Inbox</button>
+        <div id="project-list"><h2>Projects</h2></div>
+        <input type="button" value="New Project" class="new-btn" id="new-project-btn">
+        <input type="button" value="New Task" class="new-btn" id="new-task-btn">
     </div>
 
-    
-    <div id="todo-items">
-        <div class="todo-card">
-            <div class="todo-checkbox-title-priority">
-                <div class="todo-checkbox-title">
-                    <input type="button" class="todo-checkbox" value="&#x2610">
-                    <div class="todo-title">First Todo</div>
-                </div>
-                <div class="todo-priority">&#x1F7E2</div>
-            </div>
-            <div class="todo-date">00/00/00</div>
-                <div class="todo-desc">Description of Task</div>
-            </div>
-        </div>
-    </div>
+    <form id="new-project-form">
+      <input type="button" id='new-project-close' class="close" value="&times">
+      <h2>New Project</h2>
+      <label for="project-title"><b>Title</b></label>
+      <input type="text" id='new-project-title' name="project-title">
+      <input type="button" id="new-project-submit" value="Submit">
+    </form>
+
+    <form id="new-task-form">
+      <input type="button" id='new-task-close' class="close" value="&times">
+      <h2>New Task</h2>
+      <label for="new-task-title"><b>Title</b></label>
+      <input type="text" id='new-task-title' name="task-title">
+      
+      <label for="new-task-due-date"><b>Due Date</b></label>
+      <input type="date" id="new-task-due-date">
+      
+      <label for="new-task-description"><b>Description</b></label>
+      <input type="text" id="new-task-description">
+      
+      <label for="priority"><b>Priority</b></label>
+      <select name="priority" id="new-task-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+      </select>
+      
+      <input type="button" id="new-task-submit" value="Submit">
+    </form>
     <!-- your content here... -->
     <script src="main.js"></script>
 </body>

@@ -1,25 +1,23 @@
 // Project class
-// Projects have a single title and one or more todos
+// Projects have a single title and one or more tasks
 // There is a default Tasks project that is initilized at the start
 // More projects can be created by user
+export default ((name) => {
+  let tasks = [];
 
-import { Todo } from "./todo";
+  const getName = () => name;
 
-class Project {
-    todos = []
+  const getTasks = () => tasks;
 
-    constructor(title) {
-      this.title = title;
-    }
+  const setTasks = (restoredTasks) => tasks = restoredTasks;
 
-    addNewTodo(title, description, dueDate, priority) {
-      let newTodo = new Todo(title, description, dueDate, priority);
-      this.todos.push(newTodo);
-    }
+  const addTask = (task) => tasks.push(task);
 
-    getTodos() {
-      return this.todos;
-    }
-}
+  const deleteTask = (deltask) => tasks = tasks.filter((task) => task.name != deltask.name);
 
-export {Project}
+  const toJSON = () => {
+    return {name, tasks};
+  }
+
+  return {getName, getTasks, setTasks, addTask, deleteTask, toJSON}
+})
