@@ -1,7 +1,6 @@
 import Storage from "./storage"
 import projectFactory from "./project"
 import taskFactory from "./task"
-import todolist from "./todolist";
 
 export default (() => {
   const loadHomepage = () => {
