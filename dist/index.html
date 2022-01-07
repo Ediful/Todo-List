@@ -17,8 +17,8 @@
         <div id="title"><h1>Todo List</h1></div>
         <button class="project-tab" id="inbox">Inbox</button>
         <div id="project-list"><h2>Projects</h2></div>
-        <input type="button" value="New Project" id="new-project-btn">
-        <input type="button" value="New Task" id="new-task-btn">
+        <input type="button" value="New Project" class="new-btn" id="new-project-btn">
+        <input type="button" value="New Task" class="new-btn" id="new-task-btn">
     </div>
 
     <form id="new-project-form">
@@ -38,10 +38,15 @@
       <label for="new-task-due-date"><b>Due Date</b></label>
       <input type="text" id="new-task-due-date">
       
-      <label for="new-task-description"><b>description</b></label>
+      <label for="new-task-description"><b>Description</b></label>
       <input type="text" id="new-task-description">
       
-      <label><b>Priority</b><input type="checkbox" id="new-task-priority"></label>
+      <label for="priority"><b>Priority</b></label>
+      <select name="priority" id="new-task-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+      </select>
       
       <input type="button" id="new-task-submit" value="Submit">
     </form>

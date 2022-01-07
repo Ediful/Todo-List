@@ -11,14 +11,13 @@ export default ((name) => {
 
   const setTasks = (restoredTasks) => tasks = restoredTasks;
 
-  const addTask = (task) => {
-    tasks.push(task);
-    console.log(tasks);
-  }
+  const addTask = (task) => tasks.push(task);
+
+  const deleteTask = (deltask) => tasks = tasks.filter((task) => task.name != deltask.name);
 
   const toJSON = () => {
     return {name, tasks};
   }
 
-  return {getName, getTasks, setTasks, addTask, toJSON}
+  return {getName, getTasks, setTasks, addTask, deleteTask, toJSON}
 })

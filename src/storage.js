@@ -5,13 +5,8 @@ import todolist from "./todolist";
 // handles adding projects and tasks to help ensure
 // that everything is saved properly
 export default (() => {
-    // save todolist
-    const saveProjects = () => {
-        // save todolist
-        localStorage.setItem("todolist", JSON.stringify(todolist.getProjects()));
-    }
+    const saveProjects = () => localStorage.setItem("todolist", JSON.stringify(todolist.getProjects()));
 
-    // load todolist
     const loadProjects = () => {
         if (localStorage.getItem("todolist")) {
             let restoredTodolist = JSON.parse(localStorage.getItem("todolist"));
@@ -28,22 +23,29 @@ export default (() => {
         }
     }
 
-    // get todolist
     const getTodoList = () => todolist.getProjects();
 
-    // add project
+    const getProject = (projectName) => todolist.getProject(projectName);
+
     const addProject = (newProject) => {
         todolist.addProject(newProject);
         saveProjects();
     }
 
-    // add task to a project
+    const deleteProject = (project) => {
+        todolist.deleteProject(project);
+        saveProjects();
+    }
+
     const addTask = (projectName, newTask) => {
         todolist.getProject(projectName).addTask(newTask);
         saveProjects();
     }
 
-    // TODO: edit projects and tasks, delete projects and tasks
+    const deleteTask = (projectName, delTask) => {
+        todolist.getProject(projectName, delTask).deleteTask(delTask);
+        saveProjects();
+    }
 
-    return {loadProjects, getTodoList, addProject, addTask}
+    return {loadProjects, getTodoList, addProject, addTask, getProject, deleteProject, deleteTask}
 })();
