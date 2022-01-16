@@ -1,56 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>A Basic HTML5 Template</title>
-  <link rel='stylesheet' href='styles.css'>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <title>A Basic HTML5 Template</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <div id="content">
       <h3 id="active-project">Inbox</h3>
       <div id="todo-items"></div>
     </div>
-    
+
     <div id="sidebar">
-        <div id="title"><h1>Todo List</h1></div>
-        <button class="project-tab" id="inbox">Inbox</button>
-        <div id="project-list"><h2>Projects</h2></div>
-        <input type="button" value="New Project" class="new-btn" id="new-project-btn">
-        <input type="button" value="New Task" class="new-btn" id="new-task-btn">
+      <div id="title"><h1>Todo List</h1></div>
+      <button class="project-tab" id="inbox">Inbox</button>
+      <div id="project-list"><h2>Projects</h2></div>
+      <input
+        type="button"
+        value="New Project"
+        class="new-btn"
+        id="new-project-btn"
+      />
+      <input type="button" value="New Task" class="new-btn" id="new-task-btn" />
     </div>
 
     <form id="new-project-form">
-      <input type="button" id='new-project-close' class="close" value="&times">
+      <input
+        type="button"
+        id="new-project-close"
+        class="close"
+        value="&times"
+      />
       <h2>New Project</h2>
       <label for="project-title"><b>Title</b></label>
-      <input type="text" id='new-project-title' name="project-title">
-      <input type="button" id="new-project-submit" value="Submit">
+      <input type="text" id="new-project-title" name="project-title" />
+      <input
+        type="button"
+        id="new-project-submit"
+        class="new-submit"
+        value="Submit"
+      />
     </form>
 
     <form id="new-task-form">
-      <input type="button" id='new-task-close' class="close" value="&times">
+      <input type="button" id="new-task-close" class="close" value="&times" />
       <h2>New Task</h2>
       <label for="new-task-title"><b>Title</b></label>
-      <input type="text" id='new-task-title' name="task-title">
-      
+      <input type="text" id="new-task-title" name="task-title" />
+
       <label for="new-task-due-date"><b>Due Date</b></label>
-      <input type="date" id="new-task-due-date">
-      
+      <input type="date" id="new-task-due-date" />
+
       <label for="new-task-description"><b>Description</b></label>
-      <input type="text" id="new-task-description">
-      
+      <input type="text" id="new-task-description" />
+
       <label for="priority"><b>Priority</b></label>
       <select name="priority" id="new-task-priority">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
       </select>
-      
-      <input type="button" id="new-task-submit" value="Submit">
+
+      <input
+        type="button"
+        id="new-task-submit"
+        class="new-submit"
+        value="Submit"
+      />
     </form>
     <!-- your content here... -->
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
