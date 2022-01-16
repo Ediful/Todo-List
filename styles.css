@@ -1,117 +1,186 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-  }
-  
- body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ffe5d4;
-    height: 100%;
-    font-size: 18px;
-    color: darkblue;
-  }
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #b9e3c6;
+  height: 100%;
+  font-size: 18px;
+  color: #14213d;
+}
 
 #sidebar {
-    width: 180px;
-    position: fixed;
-    background-color: brown;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    height: 100%;
-    border-radius: 0px 5px 5px 0px;
+  background-color: #59c9a5;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  height: 100%;
+  border-radius: 0px 5px 5px 0px;
 }
 
 h1 {
-    margin: 10px;
+  margin: 10px;
 }
 
 h2 {
-    margin: 10px;
+  margin: 10px;
 }
 
 #project-list {
-    display: block;
+  display: block;
 }
 
 .project-card {
-    display: flex;
+  display: flex;
 }
 
 .project-tab {
-    display: block;
-    font-size: 18px;
-    color: white;
-    margin: 10px 5px;
-    padding: 5px;
-    border: none;
-    background: none;
+  display: block;
+  font-size: 20px;
+  color: whitesmoke;
+  margin: 10px 5px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+
+.project-tab:hover {
+  cursor: pointer;
 }
 
 .project-delete-btn {
-    border: none;
-    background: none;
-    color: white;
-    font-size: 26px;
+  background-color: transparent;
+  border: none;
+  color: #fffd98;
+  font-weight: bold;
+  font-size: 26px;
 }
 
 .new-btn {
-    font-size: 14px;
-    margin: 5px;
-    padding: 5px;
+  margin: 5px 10px;
+  background-color: #fffd98;
+  border: 3px solid #14213d;
+  border-radius: 5px;
+  color: #14213d;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.5em;
+  cursor: pointer;
+  box-shadow: 1px 2px #000;
+}
+
+.new-btn:hover {
+  background-color: #fffec1;
+}
+
+.new-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
 }
 
 form {
-    display: none; /* Hidden by default */
-    position: absolute;
-    background-color: #FF729F;
-    top: 0;
-    right: 0;
-    margin: 0.6em;
-    padding: 0.75em;
-    z-index: 1; /* Sit on top */
-    width: fit-content;
-    border: 3px solid #14213d;
-    border-radius: 10px;
-    box-shadow: 1px 2px #829f8b;
-  }
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #ff729f;
+  top: 0;
+  right: 0;
+  margin: 0.6em;
+  padding: 0.75em;
+  z-index: 1; /* Sit on top */
+  width: fit-content;
+  border: 3px solid #14213d;
+  border-radius: 10px;
+  box-shadow: 1px 2px #829f8b;
+}
 
 #todo-items {
-    margin-top: 40px;
-    min-width: 300px;
-    max-width: 50%;
+  margin-top: 40px;
+  min-width: 300px;
+  max-width: 50%;
 }
 
 .todo-card {
-    display: block;
-    border: thin solid black;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0px;
+  display: block;
+  border: thin solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0px;
 }
 
 .todo-card-row-1 {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .todo-desc {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .todo-date {
-    margin: 0 10px 0 auto;
+  margin: 0 10px 0 auto;
 }
 
 .task-delete-btn {
-    font-size: 24px;
-    border: none;
-    background: none;
-    width: 20px;
+  background-color: transparent;
+  border: none;
+  color: #fffd98;
+  font-size: 24px;
+  font-weight: bold;
+  width: 20px;
+}
+
+.task-delete-btn:hover {
+  color: #14213d;
+  cursor: pointer;
 }
 
 #content {
-    margin: 20px 0px 0px 200px;
+  margin: 20px 0px 0px 200px;
+}
+
+.close {
+  display: block;
+  position: absolute;
+  right: 0.25em;
+  top: 0.05em;
+  background-color: transparent;
+  border: none;
+  color: #fffd98;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: #14213d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.new-submit {
+  background-color: #fffd98;
+  border: 3px solid #14213d;
+  border-radius: 5px;
+  color: #14213d;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  box-shadow: 1px 2px #b3506f;
+}
+
+.new-submit:hover {
+  background-color: #fffec1;
+}
+
+.new-submit:active {
+  box-shadow: none;
+  transform: translateY(2px);
 }
